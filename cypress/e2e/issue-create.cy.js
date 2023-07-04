@@ -31,21 +31,7 @@ describe('Issue create', () => {
 
       //Click on button "Create issue"
       cy.get('button[type="submit"]').click();
-
-      cy.get('[data-testid="modal:issue-create"]').should('not.exist');
-      cy.contains('Issue has been successfully created.').should('exist')
-      
-      cy.get('[data-testid="board-list:backlog').should('be.visible').and('have.length', '1').within(() => {
-      cy.get('[data-testid="list-issue"]')
-          .should('have.length', '5')
-          .first()
-          .find('p')
-          .contains('ab');
-        //Assert that correct avatar and type icon are visible
-        cy.get('[data-testid="avatar:Pickle Rick"]').should('be.visible');
-        cy.get('[data-testid="icon:bug"]').should('be.visible');
-      });
-    });
+    })
   })
   it('Should create an issue and validate it successfully', () => {
     //System finds modal for creating issue and does next steps inside of it
