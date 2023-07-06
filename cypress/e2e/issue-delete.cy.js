@@ -1,14 +1,16 @@
-describe('Issue create', () => {
-  beforeEach(() => {
-    cy.visit('/');
-    cy.url().should('eq', `${Cypress.env('baseUrl')}project/board`).then((url) => {
-      //System will already open issue creating modal in beforeEach block  
-      cy.visit(url + '/board?modal-issue-create=true');
-    });
-  });
-  it('My task 1 creating new issue', () => {
+describe('Issue details editing', () => {
+beforeEach(() => {
+cy.visit('/');
+cy.url().should('eq', `${Cypress.env('baseUrl')}project`).then((url) => {
+cy.visit(url + '/board');
+cy.contains('This is an issue of type: Task.').click();
+});
+cy.get('[data-testid="modal:issue-details"]').should('be.visible')
+});
+
+  it('Delete issue', () => {
     //System finds modal for creating issue and does next steps inside of it
-    cy.get('[data-testid="modal:issue-create"]').within(() => {
+    cy.get('[data-testid="modal:issue-details"]').within(() => {
 
       //open issue type dropdown and choose Bug
       cy.get('[data-testid="select:type"]').click();
