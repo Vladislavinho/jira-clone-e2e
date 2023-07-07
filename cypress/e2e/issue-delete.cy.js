@@ -12,9 +12,10 @@ const OpenIssue = () => cy.get('[data-testid="modal:issue-details"]');
 it('Delete issue', () => {
  OpenIssue()
  cy.get('[data-testid="icon:trash"]').click()
-  
-
-  })
+ cy.get(WindowDeleteissue).should('be.visible');
+ cy.get(WindowDeleteissue).contains('button', 'Delete issue')
+ .click()
+})
 
 
 })
