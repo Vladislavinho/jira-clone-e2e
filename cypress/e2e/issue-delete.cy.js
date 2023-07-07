@@ -7,8 +7,9 @@ cy.contains('This is an issue of type: Task.').click();
 });
 cy.get('[data-testid="modal:issue-details"]').should('be.visible')
 });
+const WindowDeleteissue = () => cy.get('[data-testid="modal:confirm"]');
 const OpenIssue = () => cy.get('[data-testid="modal:issue-details"]');
-  it('Delete issue', () => {
+it('Delete issue', () => {
  OpenIssue()
  cy.get('[data-testid="icon:trash"]').click()
   
