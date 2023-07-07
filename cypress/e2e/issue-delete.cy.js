@@ -13,8 +13,8 @@ it('Delete issue', () => {
  OpenIssue()
  cy.get('[data-testid="icon:trash"]').click()
  cy.get(WindowDeleteissue).should('be.visible');
- cy.get(WindowDeleteissue).contains('button', 'Delete issue')
- .click()
+ cy.get(WindowDeleteissue).contains('Delete issue').click()
+ cy.get(WindowDeleteissue).should('not.exist')
 })
 
 
